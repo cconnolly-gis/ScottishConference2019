@@ -1,0 +1,11 @@
+//Greenspace Name
+
+//Name variable
+var greenspaceName = $feature.distName1;
+
+if(greenspaceName == " "){
+    return null;
+}
+else{
+    return "Name: "+greenspaceName;
+}
