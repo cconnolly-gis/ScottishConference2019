@@ -1,0 +1,39 @@
+//Function Colour
+
+//Function variable
+var greenspaceFunction = $feature["function_"];
+
+//Defining hex values for each function
+if(greenspaceFunction == "Allotments Or Community Growing Spaces"){
+    return "#997368";
+}
+else if(greenspaceFunction == "Bowling Green"){
+    return "#E8E815";
+}
+else if(greenspaceFunction == "Cemetery"){
+    return "#8580C2";
+}
+else if(greenspaceFunction == "Golf Course"){
+    return "#CEDB39";
+}
+else if(greenspaceFunction == "Other Sports Facility"){
+    return "#FFCE08";
+} 
+else if(greenspaceFunction == "Play Space"){
+    return "#FF9500";
+}
+else if(greenspaceFunction == "Playing Field"){
+    return "#4DAB55";
+}
+else if(greenspaceFunction == "Public Park Or Garden"){
+    return "#009485";
+}
+else if(greenspaceFunction == "Religious Grounds"){
+    return "#8094BF";
+} 
+else if(greenspaceFunction == "Tennis Court"){
+    return "#FF6208";
+}
+else{
+    return "#AAAAAA";
+}
