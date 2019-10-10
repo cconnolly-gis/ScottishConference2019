@@ -1,0 +1,19 @@
+//Bird Sightings
+
+//How many Bird Sightings are in each Reserve?
+
+//Geometries
+var birdSightingsGeometry = FeatureSetByName($map,"Bird Sightings");
+var reserveGeometry = geometry($feature);
+
+//Spatial check
+var containsBirdSightings = contains(birdSightingsGeometry,reserveGeometry);
+
+//Count
+var countBirdSightings = count(containsBirdSightings);
+
+//Convert to text
+var countBirdSightingsText = text(countBirdSightings);
+
+//Result
+return countBirdSightingsText;
