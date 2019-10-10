@@ -1,0 +1,15 @@
+//Limit edits to RSPB Reserves
+
+//Geometries
+var reserveGeometry = FeatureSetByName($map,"RSPB Reserves");
+var birdSightingsGeometry = geometry($feature);
+
+//Spatial check
+var intersectsBirdSightings = intersects(reserveGeometry,birdSightingsGeometry);
+
+if(count(intersectsBirdSightings)>0){
+    return true;
+}
+else{
+    return false;
+}
