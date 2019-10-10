@@ -1,0 +1,27 @@
+//Count of each species
+
+//What species are in this reserve?
+
+//Geometries
+var birdSightingsGeometry = FeatureSetByName($map,"Bird Sightings");
+var reserveGeometry = geometry($feature);
+
+//Spatial check
+var containsBirdSightings = contains(reserveGeometry, birdSightingsGeometry)
+
+//How many of each species
+var birdsBySpecies = GroupBy(containsBirdSightings, ['Species'], [{name: 'birdSpeciesCount', expression: 'Species', statistic: 'COUNT' }]);
+
+//Order Ascending
+var birdOrder = OrderBy(birdsBySpecies, "birdSpeciesCount DSC");
+
+//Only return the top 3
+var birdRank = Top(birdOrder,3);
+
+//Populate the top 3 bird species into a list
+var birdList = '';
+for (var pathIndex in birdRank) {  
+    birdList += pathIndex.Species + ": " + pathIndex.birdSpeciesCount + TextFormatting.NewLine;
+}
+
+return birdList;   
