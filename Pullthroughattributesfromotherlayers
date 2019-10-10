@@ -1,0 +1,25 @@
+//Get a count of how many Bird Sightings are in each Reserve
+
+//Geometries
+var reserveGeometry = FeatureSetByName($map,"RSPB Reserves");
+var birdSightingsGeometry = geometry($feature);
+
+//Spatial check
+var intersectsBirdSightings = intersects(birdSightingsGeometry,reserveGeometry);
+
+//Create array
+var reserveName = [];
+var reserveNameCounter = 0;
+
+//Populate array with reserve name
+for(var pathIndex in intersectsBirdSightings){
+    reserveName[reserveNameCounter] = pathIndex.Name;
+    reserveNameCounter++;
+}
+
+if(count(reserveName)>0){
+    return proper(reserveName[0]);
+}
+else{
+    return null;
+}
